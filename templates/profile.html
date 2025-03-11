@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px #aaa;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        a:hover {
+            background-color: #c82333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .update {
+            margin-top: 20px;
+        }
+        .update a {
+            background-color: #28a745;
+        }
+        .update a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>User Profile</h2>
+</header>
+
+<div class="container">
+    <h1>Welcome, {{ user.username }}!</h1>
+    <p>Your email: {{ user.email }}</p>
+
+    <div class="update">
+        <a href="{% url 'update_profile' pk=user.pk %}">Update Profile</a>
+    </div>
+
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avto extiyot qismlari </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .kitob-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .kitob {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .kitob img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer; /* Rasm ustiga bosish mumkinligini bildiradi */
+        }
+        .kitob h3 {
+            margin: 10px 0;
+        }
+        .kitob p {
+            font-size: 16px;
+            color: #444;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="{% url 'home' %}"> Asosiy sahifa</a><br>
+    <a href="{% url 'search' %}">Qidirish</a><br>
+    <a href="{% url 'login_profile' %}">Profilga o`tish</a>
+</header>
+
+<div class="container">
+
+</div>
+
+
+</body>
+</html>
