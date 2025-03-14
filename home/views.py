@@ -74,3 +74,5 @@ class PartsList(ListView):
     model = Parts
     template_name = 'parts_list.html'
     context_object_name = 'parts'
+    paginate_by = 5
+

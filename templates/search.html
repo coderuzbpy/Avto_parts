@@ -163,8 +163,7 @@
 
 <header>Maxsulotni Qidirish</header>
     <nav>
-        <a href="{% url 'home' %}">Bosh Sahifa</a>
-        <a href="{% url 'parts-list' %}">Maxsulotlar</a>
+        <a href="{% url 'parts-list' %}">Ortga qaytish</a>
     </nav>
 
 <form method="GET" class="search-container">
@@ -187,6 +186,7 @@
                 <h3>Texnik xususiyatlari:</h3>
                 <p><strong>Ishlab chiqaruvchi:</strong> {{ parts.company }}</p>
                 <p><strong>Ishlab chiqarilgan sana:</strong> {{ parts.date }}</p>
+                <p><strong>Kafolatlangan muddati:</strong> {{ parts.guarantee }}</p>
                 <p><strong>Oxirgi yangilanish:</strong> {{ parts.updated_at|date:"d-m-Y H:i" }}</p>
             </div>
             <div class="description">

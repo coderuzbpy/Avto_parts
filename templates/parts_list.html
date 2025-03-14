@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avto extiyot qismlari </title>
+    <title>Avto extiyot qismlari</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,57 +18,101 @@
             padding: 15px;
             font-size: 24px;
         }
+         h1 {
+        background: linear-gradient(135deg, #007bff, #00d4ff);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-size: 24px;
+        }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
-        .kitob-list {
+        .parts-list {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
-        .kitob {
+        .part-card {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
             text-align: center;
+            transition: 0.3s;
         }
-        .kitob img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer; /* Rasm ustiga bosish mumkinligini bildiradi */
+        .part-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
-        .kitob h3 {
+        .part-card h3 {
             margin: 10px 0;
+            color: #333;
         }
-        .kitob p {
-            font-size: 16px;
-            color: #444;
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
         }
-        a {
+        .pagination a {
             text-decoration: none;
-            color: inherit;
+            color: white;
+            background: #007bff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .pagination a:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="{% url 'home' %}"> Asosiy sahifa</a><br>
-    <a href="{% url 'search' %}">Qidirish</a><br>
-    <a href="{% url 'login_profile' %}">Profilga o`tish</a>
+    <a href="{% url 'home' %}">Asosiy sahifa</a> |
+    <a href="{% url 'search' %}">Qidirish</a> |
+    <a href="{% url 'login_profile' %}">Profilga o‘tish</a>
 </header>
 
+<h1>
+    Bizning do‘konda bor mahsulotlarni pastdan ko‘rishingiz mumkin.
+    Agar to‘liqroq ma'lumot kerak bo‘lsa, "qidiruv" paneli orqali mahsulot nomi bilan topishingiz mumkin.
+</h1>
+
 <div class="container">
+    <div class="parts-list">
+        {% for part in parts %}
+            <div class="part-card">
+                <h3>{{ part.name }}</h3>
+            </div>
+        {% endfor %}
+    </div>
 
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </div>
 </div>
-
 
 </body>
 </html>
